@@ -1,6 +1,7 @@
 
 package org.usfirst.frc.team3966.robot.commands;
 
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Command;
 
 import org.usfirst.frc.team3966.robot.Robot;
@@ -12,7 +13,7 @@ import org.usfirst.frc.team3966.robot.subsystems.Drive;
  *
  */
 public class TankDrive extends Command {
-
+    
     public TankDrive() {
         // Use requires() here to declare subsystem dependencies
         requires(Robot.drive);
@@ -30,6 +31,13 @@ public class TankDrive extends Command {
       } else {
         Robot.drive.TankDrive(Robot.oi.controller.getRawAxis(5), Robot.oi.controller.getRawAxis(1));
       }
+      
+      if (Robot.oi.controller.getCircleButton()) {
+        Drive.enablePCM();
+      } else if (Robot.oi.controller.getXButton()) {
+        Drive.disablePCM();
+      }
+      
     }
 
     // Make this return true when this Command no longer needs to run execute()

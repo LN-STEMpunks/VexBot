@@ -26,7 +26,17 @@ public class Drive extends Subsystem {
   private static SpeedController leftmotorb = new DriveMotor(robotMap.leftmotorpinb);
   private static SpeedController rightmotorf = new DriveMotor(robotMap.rightmotorpinf);
   private static SpeedController rightmotorb = new DriveMotor(robotMap.rightmotorpinb);
+  
+  private static PCM pcm = new PCM(robotMap.pcmpin);
 
+  public static void enablePCM() {
+      pcm.set(true);
+  }
+  
+  public static void disablePCM() {
+      pcm.set(false);
+  }
+  
   //RobotDrive robotdrive = RobotMap.robotdrive;
 
   public void doNothing() {

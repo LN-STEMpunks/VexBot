@@ -21,18 +21,21 @@ public class RobotMap {
 	// public static int rangefinderPort = 1;
 	// public static int rangefinderModule = 1;
 
-	public final int rstick = 0;
-	public final int lstick = 1;
-	public final int fstick = 2;
-	
-	public final int cstick = 0;
-	
-	public final int leftmotorpinb = 2;
-	public final int leftmotorpinf = 1;
-	public final int rightmotorpinb = 3;
-	public final int rightmotorpinf = 4
-                ;
-	
-	//public static RobotDrive robotdrive;
+    	public static final int cstick = 0;
+
+    
+	public static final int rstick = 0;
+	public static final int lstick = 1;
+	public static final int fstick = 2;
+		
+	public static final int leftmotorpinb = 3;
+	public static final int leftmotorpinf = 0;
+	public static final int rightmotorpinb = 2;
+	public static final int rightmotorpinf = 1;
+
+	public static final int pcmnodeid = 0;
+        
+        // change this
+	public static final int pcmpin = -0;
 	
 }
