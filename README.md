@@ -13,7 +13,11 @@ Clone the repository:
 
 Now, switch the the `dev` branch:
 
-`git checkout dev`
+`git checkout dev && git branch -u origin/dev`
+
+Now, code away!
+
+When you've made a change, run `git add .; git commit -m"Message Here"; git push`, and it should push to the `dev` branch
 
 If you haven't already, you can deploy [Toast](https://github.com/Open-RIO/ToastAPI) to your Robot by running `./gradlew deploy`.
 
