@@ -10,9 +10,6 @@
   libraries.
   -->
 
-  <!-- By default the system version of WPI is used -->
-  <!-- <property name="version" value=""/> -->
-
   <!-- By default the system team number is used -->
   <property name="team-number" value="3966"/>
 
