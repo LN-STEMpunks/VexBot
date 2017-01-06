@@ -41,7 +41,7 @@ If you haven't already, you can deploy [Toast](https://github.com/Open-RIO/Toast
 
 ## Developing
 
-First, follow [Getting Started](#Getting%20Started), then:
+First, follow [Getting Started](#getting-started), then:
 
 When you've made a change, run `./update.sh`, and it should push to the `dev` branch
 
