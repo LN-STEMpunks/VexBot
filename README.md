@@ -18,9 +18,9 @@ Now, switch the the `dev` branch:
 Now, code away!
 
 
-When you've made a change, run `git add FILE; git commit -m"Message Here"; git push`, and it should push to the `dev` branch
+When you've made a change, run `./update.sh`, and it should push to the `dev` branch
 
-If you haven't already, you can deploy [Toast](https://github.com/Open-RIO/ToastAPI) to your Robot by running `./gradlew deploy`.
+To deploy to the robot, run `./deploy.sh`
 
 
 ### Eclipse or IntelliJ IDEA
