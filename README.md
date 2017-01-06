@@ -45,7 +45,11 @@ First, follow [Getting Started](#Getting%20Started), then:
 
 When you've made a change, run `./update.sh`, and it should push to the `dev` branch
 
-To update to the master branch, run `git checkout master`
+To update to the master branch, run `git checkout master && git pull origin dev`
+
+Probably only I will have to do this, but if you do, you may have to merge.
+
+After that, do a `git push`, and return to the `dev` branch: `git checkout dev && git branch -u origin/dev`
 
 
 ## Process
