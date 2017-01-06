@@ -1,89 +1,102 @@
+/*
+    2017 L&N STEMpunks
 
+    lnstempunks.org
+
+Authors:
+    Cade Brown <cade@cade.site>
+    Ben Klein <robobenklein@gmail.com>
+
+Website:
+    programming.lnstempunks.org (or ln-stempunks.github.io)
+
+ */
 package org.usfirst.frc.team3966.robot;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import org.usfirst.frc.team3966.robot.OI;
-import org.usfirst.frc.team3966.robot.RobotMap;
+
 import org.usfirst.frc.team3966.robot.subsystems.Drive;
 import org.usfirst.frc.team3966.robot.commands.TankDrive;
-import org.usfirst.frc.team3966.robot.commands.doNothing;
+import org.usfirst.frc.team3966.robot.commands.StopDrive;
+import org.usfirst.frc.team3966.robot.values.IDs;
+import org.usfirst.frc.team3966.robot.hardware.PS4Controller;
 
 /**
- * The VM is configured to automatically run this class, and to call the
- * functions corresponding to each mode, as described in the IterativeRobot
- * documentation. If you change the name of this class or the package after
- * creating this project, you must also update the manifest file in the resource
- * directory.
+ * Do not rename this file. It is auto generated, and used to run the robot.
+ *
+ * The class declaration should look like this:
+ *
+ * public class Robot extends IterativeRobot {
+ *
  */
 public class Robot extends IterativeRobot {
 
-  public static final Drive drive = new Drive();
-  public static OI oi;
+    public static final Drive drive = new Drive();
+    public static final PS4Controller controller = new PS4Controller(IDs.controller);
 
-  Command autonomousCommand;
-  Command teleopDrive;
+    Command autonomousCommand;
+    Command teleopCommand;
 
-  /**
-   * This function is run when the robot is first started up and should be
-   * used for any initialization code.
-   */
-  public void robotInit() {
-    oi = new OI();
-    // instantiate the command used for the autonomous period
-    teleopDrive = new TankDrive();
-    autonomousCommand = new doNothing();
-  }
 
-  public void disabledPeriodic() {
-    Scheduler.getInstance().run();
-    drive.doNothing();
-  }
+    /**
+     * This function is run when the robot is first started up and should be
+     * used for any initialization code.
+     *
+     */
+    public void robotInit() {
+        // instantiate the command used for the autonomous period
+        teleopCommand = new TankDrive();
 
-  public void autonomousInit() {
-    // schedule the autonomous command (example)
-    if (autonomousCommand != null) autonomousCommand.start();
-  }
+        // stay still during autonomous
+        autonomousCommand = new StopDrive();
+    }    
 
-  /**
-   * This function is called periodically during autonomous
-   */
-  public void autonomousPeriodic() {
-    Scheduler.getInstance().run();
-  }
+    /*
+    
+        These functions are called right before autonomous/teleop
+    
+    */
+    
+    public void disabledInit() {
 
-  public void teleopInit() {
-    // This makes sure that the autonomous stops running when
-    // teleop starts running. If you want the autonomous to
-    // continue until interrupted by another command, remove
-    // this line or comment it out.
-    if (autonomousCommand != null) autonomousCommand.cancel();
+    }
+    
+    public void autonomousInit() {
+        if (autonomousCommand != null) {
+            autonomousCommand.start();
+        }
+    }
+    
+    public void teleopInit() {
+        if (autonomousCommand != null) {
+            autonomousCommand.cancel();
+        }
 
-    // Start the TankDrive command:
-    if (teleopDrive != null) teleopDrive.start();
-  }
+        if (teleopCommand != null) {
+            teleopCommand.start();
+        }
+    }
+    
+    /**
+     * This function is called periodically during autonomous/teleop
+     */
+    public void autonomousPeriodic() {
+        Scheduler.getInstance().run();
+    }
+    
+    public void teleopPeriodic() {
+        Scheduler.getInstance().run();
+    }
+    
+    public void disabledPeriodic() {
+        Scheduler.getInstance().run();
+        drive.stop();
+    }
 
-  /**
-   * This function is called when the disabled button is hit.
-   * You can use it to reset subsystems before shutting down.
-   */
-  public void disabledInit(){
-
-  }
-
-  /**
-   * This function is called periodically during operator control
-   */
-  public void teleopPeriodic() {
-    Scheduler.getInstance().run();
-  }
-
-  /**
-   * This function is called periodically during test mode
-   */
-  public void testPeriodic() {
-    LiveWindow.run();
-  }
+    public void testPeriodic() {
+        LiveWindow.run();
+    }
 }

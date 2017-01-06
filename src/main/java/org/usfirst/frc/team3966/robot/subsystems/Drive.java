@@ -1,60 +1,50 @@
-
 package org.usfirst.frc.team3966.robot.subsystems;
 
 //import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc.team3966.robot.hardware.PCM;
+import org.usfirst.frc.team3966.robot.hardware.DriveMotor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.usfirst.frc.team3966.robot.commands.TankDrive;
-import org.usfirst.frc.team3966.robot.RobotMap;
-import org.usfirst.frc.team3966.robot.subsystems.DriveMotor;
-
-import edu.wpi.first.wpilibj.RobotDrive;
-import edu.wpi.first.wpilibj.SpeedController;
+import org.usfirst.frc.team3966.robot.values.IDs;
 
 /**
  * Drive subsystem, controls left and right motors.
  *
- * Supplies methods for controlling the drive by various functions.
- * The motors objects should not be directly set from any other place.
+ * Supplies methods for controlling the drive by various functions. The motors
+ * objects should not be directly set from any other place.
  */
 public class Drive extends Subsystem {
 
-  private static RobotMap robotMap = new RobotMap();
+    private DriveMotor LB = new DriveMotor(IDs.LB_motor);
+    private DriveMotor LF = new DriveMotor(IDs.LF_motor);
 
-  // Put methods for controlling this subsystem
-  // here. Call these from Commands.
-  private static SpeedController leftmotorf = new DriveMotor(robotMap.leftmotorpinf);
-  private static SpeedController leftmotorb = new DriveMotor(robotMap.leftmotorpinb);
-  private static SpeedController rightmotorf = new DriveMotor(robotMap.rightmotorpinf);
-  private static SpeedController rightmotorb = new DriveMotor(robotMap.rightmotorpinb);
-  
-  private static PCM pcm = new PCM(robotMap.pcmpin);
+    private DriveMotor RB = new DriveMotor(IDs.RB_motor);
+    private DriveMotor RF = new DriveMotor(IDs.RF_motor);
 
-  public static void enablePCM() {
-      pcm.set(true);
-  }
-  
-  public static void disablePCM() {
-      pcm.set(false);
-  }
-  
-  //RobotDrive robotdrive = RobotMap.robotdrive;
+    private PCM pcm = new PCM(IDs.PCM_node, IDs.PCM_pin);
 
-  public void doNothing() {
-    rightmotorf.set(0);
-    rightmotorb.set(0);
-    leftmotorf.set(0);
-    leftmotorb.set(0);
-  }
+    public void initDefaultCommand() {
+        setDefaultCommand(new TankDrive());
+    }
 
-  public void initDefaultCommand() {
-    // Set the default command for a subsystem here.
-    setDefaultCommand(new TankDrive());
-  }
+    public void stop() {
+        drive(0, 0);
+    }
+    
+    public void drive(double L_speed, double R_speed) {
+        LB.set(L_speed);
+        LF.set(L_speed);
+        
+        RB.set(R_speed);
+        RF.set(R_speed);
+    }
+    
+    public void enablePCM() {
+        pcm.enable();
+    }
 
-  public void TankDrive(double rightmotorspeed, double leftmotorspeed) {
-    rightmotorf.set(rightmotorspeed);
-    rightmotorb.set(rightmotorspeed);
-    leftmotorf.set(leftmotorspeed);
-    leftmotorb.set(leftmotorspeed);
-  }
+    public void disablePCM() {
+        pcm.disable();
+    }
+    
 }

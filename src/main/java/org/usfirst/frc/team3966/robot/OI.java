@@ -6,10 +6,10 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import org.usfirst.frc.team3966.robot.RobotMap;
-import org.usfirst.frc.team3966.robot.commands.doNothing;
+import org.usfirst.frc.team3966.robot.commands.StopDrive;
 import org.usfirst.frc.team3966.robot.commands.TankDrive;
-import org.usfirst.frc.team3966.util.PS4Controller;
+import org.usfirst.frc.team3966.robot.values.IDs;
+import org.usfirst.frc.team3966.robot.hardware.PS4Controller;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -22,39 +22,12 @@ public class OI {
   // We have both Joysticks and Game controllers now at our disposal,
   // so let's adapt for both just in case.
 
-  public static RobotMap robotMap = new RobotMap();
 
-  public static boolean controllerEnabled = true;
-
-  /*
-  public Joystick rstick;
-  public Joystick lstick;
-  public Joystick fstick;
-  public Joystick controller;
-  //*/
-  
-  public PS4Controller controller = new PS4Controller(robotMap.cstick); // A single controller for Shrimp
-  public Joystick rstick = new Joystick(robotMap.rstick); // Right drive stick
-  public Joystick lstick = new Joystick(robotMap.lstick); // Left drive stick
-  public Joystick fstick = new Joystick(robotMap.fstick); // Arm and superstructure stick
-  
-
-  /*
-  static {
-    if ( !controllerEnabled ) {
-      Joystick rstick = new Joystick(robotMap.rstick); // Right drive stick
-      Joystick lstick = new Joystick(robotMap.lstick); // Left drive stick
-      Joystick fstick = new Joystick(robotMap.fstick); // Arm and superstructure stick
-    } else if ( controllerEnabled ) {
-      Joystick controller = new XboxController(robotMap.cstick); // A single controller for Shrimp
-    }
-  }
-  //*/
 
   public OI() {
       // SmartDashboard Buttons
-      SmartDashboard.putData("doNothing", new doNothing());
-      SmartDashboard.putData("TankDrive", new TankDrive());
+      //SmartDashboard.putData("doNothing", new StopDrive());
+      //SmartDashboard.putData("TankDrive", new TankDrive(Robot.drive));
   }
 
   // Button button = new JoystickButton(stick, buttonNumber);
