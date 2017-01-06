@@ -77,3 +77,5 @@ Then, you may need to replace some other things as well.
 See [LICENSE.md](./LICENSE.md) for an explanation, or [our full licensing page](lnstempunks.github.io/licensing/).
 
 Essentially, this repo is GPLv3 with some BSD and Apache components.
+
+2017 L&N STEMpunks
