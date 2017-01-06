@@ -17,10 +17,7 @@ Now, switch the the `dev` branch:
 
 Now, code away!
 
-
-When you've made a change, run `./update.sh`, and it should push to the `dev` branch
-
-To deploy to the robot, run `./deploy.sh`
+To deploy to the robot, run `./gradlew deploy`
 
 
 ### Eclipse or IntelliJ IDEA
@@ -45,6 +42,10 @@ If you haven't already, you can deploy [Toast](https://github.com/Open-RIO/Toast
 ## Developing
 
 First, follow [Getting Started](#Getting%20Started), then:
+
+When you've made a change, run `./update.sh`, and it should push to the `dev` branch
+
+To update to the master branch, run `git checkout master`
 
 
 ## Process

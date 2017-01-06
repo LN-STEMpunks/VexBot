@@ -5,4 +5,4 @@ if [[ $MSG == "" ]]; then
 	exit 1
 fi
 
-{ ./build.sh && git add . && git commit -m"$MSG" && git push origin dev; } || printf ERROR: Task failed, not pushing.
+{ ./gradlew build && git add . && git commit -m"$MSG" && git push origin dev; } || printf ERROR: Task failed, not pushing.
