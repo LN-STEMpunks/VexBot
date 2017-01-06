@@ -1,6 +1,6 @@
 # VexBot
 
-[![Build Status](https://travis-ci.org/LN-STEMpunks/ToastRhino.svg?branch=master)](https://travis-ci.org/LN-STEMpunks/ToastRhino)
+[![Build Status](https://travis-ci.org/LN-STEMpunks/VexBot.svg?branch=master)](https://travis-ci.org/LN-STEMpunks/VexBot)
 
 Code for our Vex Pro robot.
 
