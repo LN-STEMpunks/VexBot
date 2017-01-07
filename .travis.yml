@@ -1,8 +1,12 @@
-sudo: true
-
 language: java
 
 install:
-- ./gradlew build
+  - "./gradlew assemble"
 
-jdk: oraclejdk8
+script:
+  - "./gradlew verify"
+jdk:
+  - oraclejdk8
+
+notifications:
+  email: false
