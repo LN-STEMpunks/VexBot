@@ -12,5 +12,8 @@ VexBot (0.0.1); urgency=low
    * created `math` and `math/complex` folders
      - Handles complex numbers, could be useful for rotations and whatnot.
 
+   * updated gradle script for more recent versions
+     - still waiting on new Toast version with 2017 WPILib bundled
+
 
  -- Cade Brown <cade@cade.site>  2017-01-06 15:58 -500
