@@ -10,10 +10,6 @@ buildscript {
           name = "GradleRIO"
           url = "http://dev.imjac.in/maven"
         }
-        maven {
-          name = "OpenCV"
-          url = 'https://github.com/WPIRoboticsProjects/opencv-maven/raw/mvn-repo'
-        }
     }
     dependencies {
       classpath group: 'jaci.openrio.gradle', name: 'GradleRIO', version: '4.5.0', classifier: 'Toast'			//Change this line if you wish to Update GradleRIO
