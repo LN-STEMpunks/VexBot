@@ -13,10 +13,11 @@ Website:
  */
 package org.usfirst.frc.team3966.robot;
 
-import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import jaci.openrio.toast.lib.log.Logger;
+import jaci.openrio.toast.lib.module.IterativeModule;
 
 import org.usfirst.frc.team3966.robot.subsystems.Drive;
 import org.usfirst.frc.team3966.robot.commands.TankDrive;
@@ -32,7 +33,10 @@ import org.usfirst.frc.team3966.robot.hardware.PS4Controller;
  * public class Robot extends IterativeRobot {
  *
  */
-public class Robot extends IterativeRobot {
+public class Robot extends IterativeModule {
+    
+    public static Logger logger;
+
 
     public static final Drive drive = new Drive();
     public static final PS4Controller controller = new PS4Controller(IDs.controller);
@@ -41,12 +45,19 @@ public class Robot extends IterativeRobot {
     Command teleopCommand;
 
 
-    /**
-     * This function is run when the robot is first started up and should be
-     * used for any initialization code.
-     *
-     */
+    public String getModuleName() {
+        return "VexBox";
+    }
+
+    public String getModuleVersion() {
+        return "0.0.1";
+    }
+    
+    
     public void robotInit() {
+        logger = new Logger(getModuleName() + " v" + getModuleVersion(), Logger.ATTR_DEFAULT);
+        logger.info("Logger online");
+        
         // instantiate the command used for the autonomous period
         teleopCommand = new TankDrive();
 
@@ -65,12 +76,14 @@ public class Robot extends IterativeRobot {
     }
     
     public void autonomousInit() {
+        logger.info("Autonomous mode");
         if (autonomousCommand != null) {
             autonomousCommand.start();
         }
     }
     
     public void teleopInit() {
+        logger.info("Teleop mode");
         if (autonomousCommand != null) {
             autonomousCommand.cancel();
         }
