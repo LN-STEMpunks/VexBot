@@ -7,6 +7,7 @@ package org.usfirst.frc.team3966.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import org.usfirst.frc.team3966.util.Logger;
 
 /**
  *
@@ -14,7 +15,11 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class BaseCommand extends Command {
     
+    private Logger command_logger;
+
+    
     public BaseCommand(Subsystem... dependencies) {
+        command_logger = new Logger(this.getClass().getSimpleName());
         for (Subsystem s : dependencies) {
             requires(s);
         }

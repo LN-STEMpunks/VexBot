@@ -7,6 +7,7 @@ import org.usfirst.frc.team3966.robot.hardware.DriveMotor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.usfirst.frc.team3966.robot.commands.TankDrive;
 import org.usfirst.frc.team3966.robot.values.IDs;
+import org.usfirst.frc.team3966.util.Logger;
 
 /**
  * Drive subsystem, controls left and right motors.
@@ -15,6 +16,12 @@ import org.usfirst.frc.team3966.robot.values.IDs;
  * objects should not be directly set from any other place.
  */
 public class Drive extends Subsystem {
+    
+    private Logger drive_log;
+    
+    public Drive() {
+        drive_log = new Logger("Drive Subsystem");
+    }
 
     private DriveMotor LB = new DriveMotor(IDs.LB_motor);
     private DriveMotor LF = new DriveMotor(IDs.LF_motor);

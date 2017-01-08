@@ -3,6 +3,7 @@ package org.usfirst.frc.team3966.robot.hardware;
 
 import edu.wpi.first.wpilibj.Joystick;
 import static org.usfirst.frc.team3966.robot.values.PS4Buttons.*;
+import org.usfirst.frc.team3966.util.Logger;
 
 /**
  * PS4 controller wrapper for a joystick.
@@ -10,9 +11,12 @@ import static org.usfirst.frc.team3966.robot.values.PS4Buttons.*;
  */
 public class PS4Controller extends Joystick {
     
+    private Logger ps4controller_logger;
+
     
     public PS4Controller(int port) {
         super(port);
+        ps4controller_logger = new Logger("PS4 Controller (" + port + ")");
     }
     
     public double getRightStickX() {
