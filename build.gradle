@@ -5,15 +5,19 @@ This is the default build.gradle for Toast modules
 
 buildscript {
   repositories {
-  mavenCentral()
-  maven {
-    name = "GradleRIO"
-    url = "http://dev.imjac.in/maven"
-  }
-  }
-  dependencies {
-    classpath group: 'jaci.openrio.gradle', name: 'GradleRIO', version: '4.5.0', classifier: 'Toast'			//Change this line if you wish to Update GradleRIO
-  }
+        mavenCentral()
+        maven {
+          name = "GradleRIO"
+          url = "http://dev.imjac.in/maven"
+        }
+        maven {
+          name = "OpenCV"
+          url = 'https://github.com/WPIRoboticsProjects/opencv-maven/raw/mvn-repo'
+        }
+    }
+    dependencies {
+      classpath group: 'jaci.openrio.gradle', name: 'GradleRIO', version: '4.5.0', classifier: 'Toast'			//Change this line if you wish to Update GradleRIO
+    }
 }
 
 apply plugin: 'java'

@@ -54,7 +54,7 @@ After that, do a `git push`, and return to the `dev` branch: `git checkout dev &
 
 ## Process
 
-Written by the [L&N STEMpunks](lnstempunks.org). More specifically, the [programming team](ln-stempunks.github.io).
+Written by the [L&N STEMpunks](http://lnstempunks.org). More specifically, the [programming team](http://programming.lnstempunks.org).
 
 We use gradle, GradleRIO, Toast, Travis, Git, Java, and primarily NetBeans to develop this.
 
