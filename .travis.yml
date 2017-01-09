@@ -3,9 +3,7 @@ sudo: true
 language: java
 
 script:
-  - pushd Java
-  - ./gradlew build
-  - popd
+  - cd Java && ./gradlew build
 
 jdk: oraclejdk8
 
