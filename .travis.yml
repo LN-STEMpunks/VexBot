@@ -2,18 +2,18 @@ sudo: true
 
 language: java
 
-before_install:
+python:
+  - "3.4"
 
+before_install:
   - sudo apt-get update
-  - sudo apt-get install python3
-  - sudo apt-get install python3-setuptools
-  - sudo easy_install3 pip
-  - pip3 install pyfrc pynetworktables
+  - sudo apt-get -y install python3-pip python-dev
 
 install:
   - pushd Java
   - ./gradlew build
   - popd
+  - sudo pip3 install pyfrc pynetworktables wpilib
   - pushd Python
   - python3 src/robot.py test
 
