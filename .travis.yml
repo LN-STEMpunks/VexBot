@@ -8,7 +8,8 @@ python:
 before_install:
   - sudo apt-get update
   - sudo apt-get -y install python-dev python3-setuptools
-  - sudo easy_install3 pip
+  - curl https://bootstrap.pypa.io/get-pip.py > get-pip.py
+  - sudo python get-pip.py
 
 install:
   - pushd Java
