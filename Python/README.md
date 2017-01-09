@@ -6,7 +6,7 @@ If this doesn't work, you can find the instructions here: (https://github.com/ro
 
 First, run:
 
-`pip3 install pyfrc`, and `pip3 install pynetworktables`
+`pip3 install pyfrc pynetworktables wpilib`
 
 ## Deploying
 
