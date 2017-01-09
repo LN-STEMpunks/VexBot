@@ -15,8 +15,15 @@ install:
   - pushd Java
   - ./gradlew build
   - popd
-  - sudo pip3 install pyfrc pynetworktables wpilib
+  - sudo pip install pyfrc pynetworktables wpilib
   - pushd Python
   - python3 src/robot.py test
 
 jdk: oraclejdk8
+
+notifications:
+  email:
+    recipients:
+      - cade@lnstempunks.org
+    on_success: change
+    on_failure: change
