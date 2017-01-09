@@ -1,29 +1,29 @@
-.nb-gradle/
+Java/.nb-gradle/
 
 # WPILib
-bin/
-build/
-dist/
-sysProps.xml
-workbench.xmi
+Java/bin/
+Java/build/
+Java/dist/
+Java/sysProps.xml
+Java/workbench.xmi
 
 # IDE
-*.ipr
-*.iml
-*.iws
-out/
-tmp/
-.settings/
-.loadpath
-.project
+Java/*.ipr
+Java/*.iml
+Java/*.iws
+Java/out/
+Java/tmp/
+Java/.settings/
+Java/.loadpath
+Java/.project
 /.idea
-.classpath
-.vscode/*
+Java/.classpath
+Java/.vscode/*
 
 # Toast/GradleRIO
-run/
-.gradle/
-gradle/.launch/
+Java/run/
+Java/.gradle/
+Java/gradle/.launch/
 
 # OS Files
 .DS_Store
@@ -40,4 +40,12 @@ Thumbs.db
 *~
 
 # directory for XML generated after running junit tests through ant
-junit/
+Java/junit/
+
+# python
+
+*.pyc
+*__pycache__*
+*.pyo
+
+.vscode/*
