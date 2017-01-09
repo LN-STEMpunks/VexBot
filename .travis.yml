@@ -8,7 +8,10 @@ pre-install:
   - pip3 install pynetworktables
 
 install:
-  - ./Java/gradlew build
-  - python3 Python/src/robot.py test
+  - pushd Java
+  - ./gradlew build
+  - popd
+  - pushd Python
+  - python3 src/robot.py test
 
 jdk: oraclejdk8
