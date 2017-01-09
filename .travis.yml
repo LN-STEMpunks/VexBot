@@ -2,7 +2,7 @@ sudo: true
 
 language: java
 
-install:
+script:
   - pushd Java
   - ./gradlew build
   - popd
