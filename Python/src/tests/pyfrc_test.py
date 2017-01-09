@@ -1,6 +1,9 @@
-'''
-    This test module imports tests that come with pyfrc, and can be used
-    to test basic functionality of just about any robot.
-'''
+"""
+
+TODO: Write tests for basic stuff.
+
+Also, write a real world step by step test basis.
+
+"""
 
 from pyfrc.tests import *

@@ -1,20 +1,25 @@
+"""
+
+Operator interface.
+
+We have this in python, but not in Java.
+
+We might change it there or here.
+
+For now, it is sort of a singleton
+
+"""
+
 
 from wpilib.command.subsystem import Subsystem
-from wpilib.joystick import Joystick
-from wpilib.buttons.joystickbutton import JoystickButton
+
+from hardware import controller
+from values import ids
 
 class OI(Subsystem):
-    '''Handles joystick (operator input) interaction with the commands.'''
 
     def __init__(self):
-        '''
-        Assign commands to button actions, and publish your joysticks so you
-        can read values from them later.
-        '''
 
         super().__init__('OI')
 
-        self.joystick = Joystick(0)
-
-        self.lstick = 1
-        self.rstick = 5
+        self.joystick = controller.Controller(ids.controller)

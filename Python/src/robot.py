@@ -1,41 +1,52 @@
 #!/usr/bin/env python3
 
+"""
+
+Our robot! (in python)
+
+To deploy, run 
+
+python robot.py deploy
+
+Or, to simulate:
+
+python robot.py sim
+
+If you are another team, delete .deploy_cfg
+
+"""
+
 import wpilib
 from commandbased import CommandBasedRobot
 
 import subsystems
-from commands.autonomous import AutonomousProgram
 
+from commands.tankdrive import TankDrive
+from commands.autonomous import Autonomous
 
-class ExampleBot(CommandBasedRobot):
-    '''
-    The CommandBasedRobot base class implements almost everything you need for
-    a working robot program. All you need to do is set up the subsystems and
-    commands. You do not need to override the "periodic" functions, as they
-    will automatically call the scheduler. You may override the "init" functions
-    if you want to do anything special when the mode changes.
-    '''
+class Robot(CommandBasedRobot):
+
+    def getModuleName(self):
+        return "VexBot"
+
+    def getVersion(self):
+        return "0.0.0-py"
 
     def robotInit(self):
-        '''
-        This is a good place to set up your subsystems and anything else that
-        you will need to access later.
-        '''
-
         subsystems.init()
-        self.autonomousProgram = AutonomousProgram()
+
+        self.teleopCommand = TankDrive()
+        self.autonomousCommand = Autonomous()
 
 
     def autonomousInit(self):
-        '''
-        You should call start on your autonomous program here. You can
-        instantiate the program here if you like, or in robotInit as in this
-        example. You can also use a SendableChooser to have the autonomous
-        program chosen from the SmartDashboard.
-        '''
+        self.autonomousCommand.cancel()
+        self.autonomousCommand.start()
 
-        self.autonomousProgram.start()
+    def teleopInit(self):
+        self.autonomousCommand.cancel()
+        self.teleopCommand.start()
 
 
 if __name__ == '__main__':
-    wpilib.run(ExampleBot)
+    wpilib.run(Robot)
