@@ -16,7 +16,14 @@ class Autonomous(CommandGroup):
 
     def __init__(self):
         super().__init__('Autonomous Program')
-        pw = .45
-        tm = 6
+        pw = .25
+        tm = 1
         # circle pattern
-        self.addSequential(TankDriveTimed(-pw/2, pw, tm))
+        self.addSequential(TankDriveTimed(pw, pw, tm))
+        self.addSequential(TankDriveTimed(-pw, pw, tm))
+        self.addSequential(TankDriveTimed(pw, pw, tm))
+        self.addSequential(TankDriveTimed(-pw, pw, tm))
+        self.addSequential(TankDriveTimed(pw, pw, tm))
+        self.addSequential(TankDriveTimed(-pw, pw, tm))
+        self.addSequential(TankDriveTimed(pw, pw, tm))
+        self.addSequential(TankDriveTimed(-pw, pw, tm))
