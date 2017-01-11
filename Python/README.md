@@ -13,6 +13,7 @@ First, run:
 `pip3 install pyfrc pynetworktables wpilib`
 
 Or, for downtrodden Windows users:
+
 `py -m pip install pyfrc pynetworktables wpilib`
 
 ## Deploying
@@ -26,4 +27,5 @@ Now, everytime you run:
 `python3 src/robot.py deploy`
 
 Or, for downtrodden Windows users:
+
 `py src/robot.py deploy`
