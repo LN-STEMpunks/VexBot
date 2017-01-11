@@ -8,7 +8,7 @@ Button IDS for PS4 controller (and AXISD ids)
 
 SQUARE = 1
 X = 2
-CIRCLE = 2
+CIRCLE = 3
 TRIANGLE = 4
 
 STICK_LEFT_X_AXIS = 0

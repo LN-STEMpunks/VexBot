@@ -1,6 +1,6 @@
 package org.usfirst.frc.team3966.util;
 
-import jaci.openrio.toast.core.Toast;
+//import jaci.openrio.toast.core.Toast;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
@@ -14,15 +14,15 @@ public class Logger {
     public static final DateFormat ISO_8601_FORMAT = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 
     public static void init() {
-        Toast.log().dateFormat = ISO_8601_FORMAT;
+        //Toast.log().dateFormat = ISO_8601_FORMAT;
     }
 
-    public jaci.openrio.toast.lib.log.Logger _toast_logger;
+    //public jaci.openrio.toast.lib.log.Logger _toast_logger;
 
     public Logger(String name, String ver) {
         String lname = name + (ver == "" ? "" : "@" + ver);
-        _toast_logger = new jaci.openrio.toast.lib.log.Logger(lname, jaci.openrio.toast.lib.log.Logger.ATTR_DEFAULT);
-        _toast_logger.dateFormat = ISO_8601_FORMAT;
+        //_toast_logger = new jaci.openrio.toast.lib.log.Logger(lname, jaci.openrio.toast.lib.log.Logger.ATTR_DEFAULT);
+        //_toast_logger.dateFormat = ISO_8601_FORMAT;
         info("is online");
     }
 
@@ -31,19 +31,8 @@ public class Logger {
     }
 
     public void info(String things, Object... fmtObjs) {
-        _toast_logger.info(String.format(things, fmtObjs));
-    }
-
-    public void debug(String things, Object... fmtObjs) {
-        _toast_logger.debug(String.format(things, fmtObjs));
-    }
-
-    public void error(String things, Object... fmtObjs) {
-        _toast_logger.error(String.format(things, fmtObjs));
-    }
-
-    public void warn(String things, Object... fmtObjs) {
-        _toast_logger.warn(String.format(things, fmtObjs));
+        System.out.printf(things, fmtObjs);
+        //_toast_logger.info(String.format(things, fmtObjs));
     }
 
 }

@@ -13,9 +13,10 @@ Website:
  */
 package org.usfirst.frc.team3966.robot;
 
+import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import jaci.openrio.toast.lib.module.IterativeModule;
+//import jaci.openrio.toast.lib.module.IterativeModule;
 
 import org.usfirst.frc.team3966.robot.subsystems.Drive;
 import org.usfirst.frc.team3966.robot.commands.TankDrive;
@@ -32,7 +33,7 @@ import org.usfirst.frc.team3966.util.Logger;
  * public class Robot extends IterativeModule {
  *
  */
-public class Robot extends IterativeModule {
+public class Robot extends IterativeRobot {
 
     public static Logger logger;
 
@@ -50,7 +51,6 @@ public class Robot extends IterativeModule {
         return "VexBot";
     }
 
-    @Override
     public String getModuleVersion() {
         return "0.0.1";
     }

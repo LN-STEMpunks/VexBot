@@ -33,7 +33,7 @@ repositories {
 gradlerio.team = "3966"
 
 // roboRIO IP address
-//gradlerio.rioIP = "10.53.33.20"
+//gradlerio.rioIP = "10.39.66.21"
 gradlerio.deployFile = "toast/modules/${archivesBaseName}.jar"
 
 dependencies {
