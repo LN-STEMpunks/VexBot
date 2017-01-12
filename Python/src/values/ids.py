@@ -15,5 +15,7 @@ RF_motor = 1
 
 
 PCM_node = 0
-PCM_pin = 0
+
+PCM_pin0 = 0
+PCM_pin1 = 1
 

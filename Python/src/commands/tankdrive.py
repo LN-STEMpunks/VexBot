@@ -22,7 +22,9 @@ class TankDrive(Command):
         subsystems.drive.tank(subsystems.oi.joystick.getAxis(ps4buttons.STICK_LEFT_Y_AXIS), subsystems.oi.joystick.getAxis(ps4buttons.STICK_RIGHT_Y_AXIS))
 
         if subsystems.oi.joystick.getRawButton(ps4buttons.CIRCLE):
-            subsystems.drive.pcm.set(True)
+            subsystems.drive.enablePCM()
         elif subsystems.oi.joystick.getRawButton(ps4buttons.X):
-            subsystems.drive.pcm.set(False)
+            subsystems.drive.disablePCM()
+
+
 

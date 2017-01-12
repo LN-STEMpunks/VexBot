@@ -1,7 +1,9 @@
 
 import wpilib
 from wpilib.command.subsystem import Subsystem
-from wpilib.solenoid import Solenoid
+from wpilib.compressor import Compressor
+#from wpilib.solenoid import Solenoid
+from wpilib.doublesolenoid import DoubleSolenoid
 from commands.tankdrive import TankDrive
 
 from hardware import motor
@@ -20,7 +22,12 @@ class Drive(Subsystem):
         for MOTOR in self.RIGHT_TRACK:
             MOTOR.setInverted(True)
 
-        self.pcm = Solenoid(ids.PCM_node, ids.PCM_pin)
+        #self.pcm0 = Solenoid(ids.PCM_pin0)  
+        #self.pcm1 = Solenoid(ids.PCM_pin1)
+
+        #self.pcm = DoubleSolenoid(ids.PCM_pin0, ids.PCM_pin1)
+        #self.pcm = None
+        #self.pcm.set(False)
 
     def tank(self, ls, rs):
         for LM in self.LEFT_TRACK:
@@ -28,3 +35,13 @@ class Drive(Subsystem):
 
         for RM in self.RIGHT_TRACK:
             RM.set(rs)
+
+    def enablePCM(self):
+        self.pcm.set(2)
+        #self.pcm0.set(True)
+        #self.pcm1.set(False)
+
+    def disablePCM(self):
+        self.pcm.set(1)
+
+

@@ -29,9 +29,16 @@ public class Drive extends Subsystem {
     private DriveMotor RB = new DriveMotor(IDs.RB_motor);
     private DriveMotor RF = new DriveMotor(IDs.RF_motor);
 
-    private PCM pcm = new PCM(IDs.PCM_node, IDs.PCM_pin);
+    private PCM pcm0 = new PCM(IDs.PCM_node, IDs.PCM_pin0);
+    private PCM pcm1 = new PCM(IDs.PCM_node, IDs.PCM_pin1);
 
     public void initDefaultCommand() {
+        RB.setInverted(true);
+        RF.setInverted(true);
+
+        pcm0.disable();
+        pcm1.enable();
+
         setDefaultCommand(new TankDrive());
     }
 
@@ -48,11 +55,13 @@ public class Drive extends Subsystem {
     }
     
     public void enablePCM() {
-        pcm.enable();
+        pcm0.enable();
+        pcm1.disable();
     }
 
     public void disablePCM() {
-        pcm.disable();
+        pcm0.disable();
+        pcm1.enable();
     }
     
 }
