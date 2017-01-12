@@ -26,6 +26,10 @@ You can test these with:
 
 `python3 Python/src/robot.py test` or replace `test` with `sim` to simulate
 
+Or, for downtrodden Windows users:
+
+`py Python/src/robot.py deploy`
+
 
 `cd Java && ./gradlew build`
 
