@@ -1,8 +1,6 @@
 # VexBot java
 
-NOTE: Deploying and writing on driver station may be broken due to toast.
-
-If you need help, the repo for toast is here: (https://github.com/Open-RIO/ToastAPI)[https://github.com/Open-RIO/ToastAPI]
+No more toast! Just ANT
 
 ## Getting started
 
@@ -30,10 +28,10 @@ If you haven't already, you can deploy [Toast](https://github.com/Open-RIO/Toast
 
 After you have set up your environment, you'll want to deploy to a robot.
 
-If this is the first time the robot has been deployed to, or if you aren't sure, run 
+On all platforms, use:
 
-`./gradlew toastDeploy`
+`ant deploy`
 
-Now, everytime you want to deploy code, run:
+or, to test the build, run:
 
-`./gradlew deploy`
+`ant build`

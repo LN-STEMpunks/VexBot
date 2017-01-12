@@ -12,7 +12,7 @@ First, run:
 
 `pip3 install pyfrc pynetworktables wpilib`
 
-Or, for downtrodden Windows users:
+Or, for downtrodden (non-free) Windows users:
 
 `py -m pip install pyfrc pynetworktables wpilib`
 

@@ -1,3 +1,23 @@
+VexBot-py (0.1.0); urgency=low
+
+   * cleaned up code
+     - refactored
+
+  * PCMs still don't work
+     - changing gears is not supported 
+
+
+ -- Cade Brown <cade@cade.site>  2017-01-11 19:20 -500
+
+VexBot-java (0.1.0); urgency=high
+
+   * fixed PCMs
+     - both gears are now enabled with the java version only
+
+
+ -- Cade Brown <cade@cade.site>  2017-01-11 19:20 -500
+
+
 VexBot (0.0.1); urgency=low
 
    * First changelog

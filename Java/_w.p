@@ -1,3 +1,0 @@
-
-version=current
-team-number=3966

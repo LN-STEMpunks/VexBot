@@ -31,7 +31,7 @@ Or, for downtrodden Windows users:
 `py Python/src/robot.py deploy`
 
 
-`cd Java && ./gradlew build`
+`cd Java && ant deploy`
 
 If these run fine, then run:
 
@@ -46,7 +46,7 @@ If these run fine, then run:
 
 Written by the [L&N STEMpunks](http://lnstempunks.org). More specifically, the [programming team](http://programming.lnstempunks.org).
 
-We use gradle, GradleRIO, Toast, Travis, Git, Java, and primarily NetBeans to develop this.
+We use gradle Travis, Git, Java, and primarily VSCODE and eclipse to develop this.
 
 We also have a python version, which is meant to be equivelant to the java version, but more Pythonic.
 
