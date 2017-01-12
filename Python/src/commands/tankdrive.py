@@ -8,6 +8,7 @@ Tank drive, using controllers
 from wpilib.command import Command
 
 import subsystems
+
 from values import ps4buttons
 
 class TankDrive(Command):
@@ -19,12 +20,11 @@ class TankDrive(Command):
 
 
     def execute(self):
-        subsystems.drive.tank(subsystems.oi.joystick.getAxis(ps4buttons.STICK_LEFT_Y_AXIS), subsystems.oi.joystick.getAxis(ps4buttons.STICK_RIGHT_Y_AXIS))
 
-        if subsystems.oi.joystick.getRawButton(ps4buttons.CIRCLE):
-            subsystems.drive.enablePCM()
-        elif subsystems.oi.joystick.getRawButton(ps4buttons.X):
-            subsystems.drive.disablePCM()
+        _axis = subsystems.oi.joystick.getAxis
+
+        subsystems.drive.tank(_axis(ps4buttons.STICK_LEFT_Y_AXIS), _axis(ps4buttons.STICK_RIGHT_Y_AXIS))
+
 
 
 

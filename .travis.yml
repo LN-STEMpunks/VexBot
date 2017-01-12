@@ -3,7 +3,7 @@ sudo: true
 language: java
 
 script:
-  - cd Java && ./gradlew build
+  - cd Java && ant build
 
 jdk: oraclejdk8
 

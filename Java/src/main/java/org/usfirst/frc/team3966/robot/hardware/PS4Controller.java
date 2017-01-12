@@ -18,108 +18,32 @@ public class PS4Controller extends Joystick {
         super(port);
         ps4controller_logger = new Logger("PS4 Controller (" + port + ")");
     }
-    
-    public double getRightStickX() {
-        return getRawAxis(STICK_RIGHT_X_AXIS);
+
+    private double _pow_scale(double val, double pow) {
+        double _abs_v = Math.abs(val);
+        double _sgn_v = Math.signum(val);
+        return _sgn_v * Math.pow(_abs_v, pow);
     }
 
-    public double getRightStickY() {
-        return getRawAxis(STICK_RIGHT_Y_AXIS);
-    }
-
-    public double getLeftStickX() {
-        return getRawAxis(STICK_LEFT_X_AXIS);
-    }
-
-    public double getLeftStickY() {
-        return getRawAxis(STICK_LEFT_Y_AXIS);
+    private double _pow_scale(double val) {
+        return _pow_scale(val, 2.5);
     }
     
-    public double getDPadX() {
-        return getRawAxis(D_PAD_X_AXIS);
+    private double _exp_scale(double val, double base) {
+        double _abs_v = Math.abs(val);
+        double _sgn_v = Math.signum(val);
+        return _sgn_v * (Math.pow(base, _abs_v) - 1.0) / (base - 1.0);
     }
 
-    public double getDPadY() {
-        return getRawAxis(D_PAD_Y_AXIS);
-    }
-    
-    public double getRightTrigger() {
-        return getRawAxis(R_TRIGGER_AXIS);
-    }
-    
-    public double getLeftTrigger() {
-        return getRawAxis(L_TRIGGER_AXIS);
+    private double _exp_scale(double val) {
+        return _exp_scale(val, Math.E);
     }
 
-    
-    public boolean getSquareButton() {
-        return getRawButton(SQUARE);
+    public boolean getButton(int port) {
+        return getRawButton(port);
     }
 
-    public boolean getXButton() {
-        return getRawButton(X);
-    }
-
-    public boolean getCircleButton() {
-        return getRawButton(CIRCLE);
-    }
-
-    public boolean getTriangleButton() {
-        return getRawButton(TRIANGLE);
-    }
- 
-    /*
-    
-        R&L 1&2 are labeled on the controller, and are triggers and bumpers
-    
-    */
-    
-    public boolean getR1Button() {
-        return getRawButton(R1);
-    }
-
-    public boolean getL1Button() {
-        return getRawButton(L1);
-    }
-
-    public boolean getR2Button() {
-        return getRawButton(R2);
-    }
-
-    public boolean getL2Button() {
-        return getRawButton(L2);
-    }
-
-    /*
-    
-       R3 and L3 are pressing the Right and Left sticks down.
-    
-    */
-    
-    public boolean getR3Button() {
-        return getRawButton(R3);
-    }
-
-    public boolean getL3Button() {
-        return getRawButton(L3);
-    }
-    
- 
-    public boolean getShareButton() {
-        return getRawButton(SHARE);
-    }
-
-    public boolean getOptionsButton() {
-        return getRawButton(OPTIONS);
-    } 
-    
-    // this is the button with a playstation button
-    public boolean getPSButton() {
-        return getRawButton(PS);
-    }
-
-    // touch pad in middle
-    public boolean getPadButton() {
-        return getRawButton(TOUCH_PAD);
+    public double getAxis(int port) {
+        return _pow_scale(getRawAxis(port));
     }
 }

@@ -2,14 +2,20 @@
 
 Autonomous program
 
+Current goal:
+
+  * Go in circle
+  * Enter other stuff here
+
+
+Problems:
+
+  * doesn't go in circle
+  * something else
+
 """
-
-
 from wpilib.command.commandgroup import CommandGroup
 
-from wpilib.command.waitcommand import WaitCommand
-
-import subsystems
 from commands.tankdrivetimed import TankDriveTimed
 
 class Autonomous(CommandGroup):
