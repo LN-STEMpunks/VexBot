@@ -1,5 +1,22 @@
 VexBot-py (0.1.0); urgency=low
 
+   * implemented joystick scaling
+     - \_pow_scale and \_exp_scale scale the input for gradual changes
+
+
+ -- Cade Brown <cade@cade.site>  2017-01-12 19:18 -500
+
+VexBot-java (0.1.0); urgency=high
+
+   * implemented joystick scaling
+     - \_pow_scale and \_exp_scale scale the input for gradual changes
+
+
+ -- Cade Brown <cade@cade.site>  2017-01-11 19:18 -500
+
+
+VexBot-py (0.1.0); urgency=low
+
    * cleaned up code
      - refactored
 
