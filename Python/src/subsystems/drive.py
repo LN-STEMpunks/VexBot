@@ -6,7 +6,7 @@ from wpilib import RobotDrive
 from hardware.motor import Motor
 from values import ids
 
-
+from wpilib.solenoid import Solenoid
 
 class Drive(Subsystem):
 
@@ -19,12 +19,14 @@ class Drive(Subsystem):
         self.RB = Motor(ids.RB_motor)
         self.RF = Motor(ids.RF_motor)
 
-        self.RB.setInverted(True)
-        self.RF.setInverted(True)
-
         self.drive_train = RobotDrive(self.LF, self.LB, self.RF, self.RB)
+        #self.drive_train.setInvertedMotor(1, True);
+        #self.drive_train.setInvertedMotor(3, True);
         self.drive_train.setExpiration(0.1)
 
+        ## Uncomment to fail
+        #import time
+        #time.sleep(5)
         # doesn't work bc HAL Resource error
         #self.pcm0 = Solenoid(ids.PCM_pin0)  
         #self.pcm1 = Solenoid(ids.PCM_pin1)
