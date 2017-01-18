@@ -23,6 +23,7 @@ from commandbased import CommandBasedRobot
 import subsystems
 
 from commands.tankdrive import TankDrive
+from commands.mecdrive import MecDrive
 from commands.autonomous import Autonomous
 
 
@@ -37,7 +38,8 @@ class Robot(CommandBasedRobot):
     def robotInit(self):
         subsystems.init()
 
-        self.teleopCommand = TankDrive()
+        #self.teleopCommand = TankDrive()
+        self.teleopCommand = MecDrive()
         self.autonomousCommand = Autonomous()
 
 
