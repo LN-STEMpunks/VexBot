@@ -56,12 +56,12 @@ public class Drive extends Subsystem {
     
     public void enablePCM() {
         pcm0.enable();
-        pcm1.disable();
+        pcm1.enable();
     }
 
     public void disablePCM() {
         pcm0.disable();
-        pcm1.enable();
+        pcm1.disable();
     }
     
 }
