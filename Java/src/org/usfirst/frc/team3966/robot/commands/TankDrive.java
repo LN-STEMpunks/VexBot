@@ -14,7 +14,9 @@ public class TankDrive extends BaseCommand {
     }
 
     protected void execute() {
-        Robot.drive.drive(Robot.controller.getAxis(PS4Buttons.STICK_LEFT_Y_AXIS), Robot.controller.getAxis(PS4Buttons.STICK_RIGHT_Y_AXIS));
+        double LS =Robot.controller.getAxis(PS4Buttons.STICK_LEFT_Y_AXIS);
+        double RS =Robot.controller.getAxis(PS4Buttons.STICK_RIGHT_Y_AXIS);
+        Robot.drive.drive(.75*LS+.25*RS, .75*RS+.25*LS);
 
         if (Robot.controller.getButton(PS4Buttons.CIRCLE)) {
             Robot.drive.enablePCM();
