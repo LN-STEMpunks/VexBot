@@ -23,7 +23,7 @@ class TankDrive(Command):
 
         _axis = subsystems.oi.joystick.getAxis
 
-        subsystems.drive.tank(_axis(ps4buttons.STICK_LEFT_Y_AXIS), _axis(ps4buttons.STICK_RIGHT_Y_AXIS))
+        subsystems.drive.tank(-_axis(ps4buttons.STICK_LEFT_Y_AXIS), -_axis(ps4buttons.STICK_RIGHT_Y_AXIS))
 
 
 
